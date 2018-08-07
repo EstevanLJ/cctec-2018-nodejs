@@ -2,7 +2,7 @@
 
 1. npm init
 3. npm install --save-dev nodemon
-2. npm install --save express sqlite3
+2. npm install --save express sqlite3 body-parser
 
 
 ```node_modules\.bin\nodemon index.js```

@@ -12,37 +12,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post('/produtos', (req, res) => {
-
-  let codigo = req.body.codigo
-  let nome = req.body.nome
-  console.log(codigo, nome)
-
-  let stmt = db.prepare('INSERT INTO produto (codigo, nome) VALUES (?, ?)')
-  
-  stmt.run(codigo, nome, (err) => {
-    if(err) {
-      console.log(err)
-      res.status(400).send('num foi')
-    } else {
-      res.send('foi')
-    }
-  })
-
-})
-
-app.get('/produtos', (req, res) => {
-
-  db.all('SELECT * FROM produto', (err, rows) => {
-    if(err) {
-      res.status(500).send()
-    } else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify({ produtos: rows }));
-    }
-  })
-
-})
+require('./produtos')(app, db)
  
 app.listen(3000, () => {
     console.log('Up on port http://localhost:3000');

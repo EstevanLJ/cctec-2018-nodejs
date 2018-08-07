@@ -1,0 +1,31 @@
+{
+  "name": "cctec-2018-nodejs",
+  "version": "1.0.0",
+  "description": "Aplicacao minicurso Node.js CCTEC 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EstevanLJ/cctec-2018-nodejs.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "cctec"
+  ],
+  "author": "EstevanLJ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EstevanLJ/cctec-2018-nodejs/issues"
+  },
+  "homepage": "https://github.com/EstevanLJ/cctec-2018-nodejs#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "sqlite3": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}

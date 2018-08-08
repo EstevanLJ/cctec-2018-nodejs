@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS produto;
 CREATE TABLE produto (
     id     INTEGER       PRIMARY KEY AUTOINCREMENT
                          NOT NULL,
@@ -7,14 +8,17 @@ CREATE TABLE produto (
                          NOT NULL
 );
 
+DROP TABLE IF EXISTS venda;
 CREATE TABLE venda (
-    id         INTEGER  PRIMARY KEY AUTOINCREMENT
-                        NOT NULL,
-    data       DATETIME NOT NULL,
-    finalizada BOOLEAN  NOT NULL
-                        DEFAULT (0) 
+    id              INTEGER     PRIMARY KEY AUTOINCREMENT
+                                NOT NULL,
+    nome_cliente    VARCHAR (255)
+                                NOT NULL,
+    data            DATETIME    NOT NULL
+                                DEFAULT (CURRENT_TIMESTAMP)
 );
 
+DROP TABLE IF EXISTS venda_produto;
 CREATE TABLE venda_produto (
     id         INTEGER        PRIMARY KEY AUTOINCREMENT
                               NOT NULL,
@@ -28,3 +32,24 @@ CREATE TABLE venda_produto (
         produto_id
     )
 );
+
+INSERT INTO produto (codigo, nome) VALUES ('1', 'Produto Exemplo 01');
+INSERT INTO produto (codigo, nome) VALUES ('2', 'Produto Exemplo 02');
+INSERT INTO produto (codigo, nome) VALUES ('3', 'Produto Exemplo 03');
+INSERT INTO produto (codigo, nome) VALUES ('4', 'Produto Exemplo 04');
+INSERT INTO produto (codigo, nome) VALUES ('5', 'Produto Exemplo 05');
+INSERT INTO produto (codigo, nome) VALUES ('6', 'Produto Exemplo 06');
+INSERT INTO produto (codigo, nome) VALUES ('7', 'Produto Exemplo 07');
+INSERT INTO produto (codigo, nome) VALUES ('8', 'Produto Exemplo 08');
+INSERT INTO produto (codigo, nome) VALUES ('9', 'Produto Exemplo 09');
+
+INSERT INTO venda (nome_cliente) VALUES ('João');
+INSERT INTO venda_produto (venda_id, produto_id, quantidade) VALUES (1, 1, 3);
+INSERT INTO venda_produto (venda_id, produto_id, quantidade) VALUES (1, 3, 5);
+INSERT INTO venda_produto (venda_id, produto_id, quantidade) VALUES (1, 5, 7);
+
+INSERT INTO venda (nome_cliente) VALUES ('Maria');
+INSERT INTO venda_produto (venda_id, produto_id, quantidade) VALUES (2, 2, 9);
+INSERT INTO venda_produto (venda_id, produto_id, quantidade) VALUES (2, 4, 5);
+INSERT INTO venda_produto (venda_id, produto_id, quantidade) VALUES (2, 6, 7);
+

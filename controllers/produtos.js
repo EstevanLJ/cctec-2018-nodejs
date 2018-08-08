@@ -1,5 +1,18 @@
 module.exports = (app, db) => {
 
+    app.get('/produtos', (req, res) => {
+        db.all('SELECT * FROM produto', (err, rows) => {
+            if (err) {
+                res.status(500).send()
+            } else {
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify({
+                    produtos: rows
+                }));
+            }
+        })
+    })
+
     app.post('/produtos', (req, res) => {
         let codigo = req.body.codigo
         let nome = req.body.nome
@@ -11,19 +24,6 @@ module.exports = (app, db) => {
                 res.status(400).send()
             } else {
                 res.send()
-            }
-        })
-    })
-
-    app.get('/produtos', (req, res) => {
-        db.all('SELECT * FROM produto', (err, rows) => {
-            if (err) {
-                res.status(500).send()
-            } else {
-                res.setHeader('Content-Type', 'application/json');
-                res.send(JSON.stringify({
-                    produtos: rows
-                }));
             }
         })
     })

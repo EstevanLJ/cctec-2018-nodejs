@@ -12,7 +12,8 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-require('./produtos')(app, db)
+require('./controllers/produtos')(app, db)
+require('./controllers/vendas')(app, db)
  
 app.listen(3000, () => {
     console.log('Up on port http://localhost:3000');

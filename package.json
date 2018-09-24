@@ -27,6 +27,7 @@
   "homepage": "https://github.com/EstevanLJ/cctec-2018-nodejs#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "sqlite3": "^4.0.2"
   },

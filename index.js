@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 
 require('./controllers/produtos')(app, db)
 require('./controllers/vendas')(app, db)
+require('./controllers/sistema')(app)
  
 app.listen(3000, () => {
     console.log('Up on port http://localhost:3000');

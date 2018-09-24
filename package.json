@@ -2,6 +2,9 @@
   "name": "cctec-2018-nodejs",
   "version": "1.0.0",
   "description": "Aplicacao minicurso Node.js CCTEC 2018",
+  "engines": {
+    "node": "9.6.1"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

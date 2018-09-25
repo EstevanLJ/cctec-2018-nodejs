@@ -53,8 +53,11 @@ module.exports = (app, db) => {
         try {
             produtos = JSON.parse(req.body.produtos)
         } catch (error) {
-            res.status(400).send()
+            console.log(error)
+            return res.status(400).send()
         }
+
+        console.log(produtos)
 
         let stmtVenda = db.prepare('INSERT INTO venda (nome_cliente) VALUES (?)')
 
@@ -67,8 +70,8 @@ module.exports = (app, db) => {
 
                 db.parallelize(function() {
                     produtos.forEach(produto => {
-                        let stmtProduto = db.prepare('INSERT INTO venda_produto (venda_id, produto_id, quantidade) VALUES (?, ?, ?)')
-                        stmtProduto.run(venda_id, produto.produto_id, produto.quantidade)
+                        let stmtProduto = db.prepare('INSERT INTO venda_produto (venda_id, produto_id, quantidade, valor_unitario) VALUES (?, ?, ?, ?)')
+                        stmtProduto.run(venda_id, produto.produto_id, produto.quantidade, produto.valor_unitario)
                     });
                 });
 

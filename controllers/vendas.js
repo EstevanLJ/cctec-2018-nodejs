@@ -53,11 +53,8 @@ module.exports = (app, db) => {
         try {
             produtos = JSON.parse(req.body.produtos)
         } catch (error) {
-            console.log(error)
             return res.status(400).send()
         }
-
-        console.log(produtos)
 
         let stmtVenda = db.prepare('INSERT INTO venda (nome_cliente) VALUES (?)')
 

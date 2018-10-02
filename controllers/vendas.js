@@ -25,7 +25,7 @@ module.exports = (app, db) => {
                 if(venda.length > 0) {
                     let stmtProdutos = db.prepare(`
                         SELECT * FROM venda_produto 
-                        JOIN produto ON venda_produto.id = produto.id 
+                        JOIN produto ON venda_produto.produto_id = produto.id 
                         WHERE venda_id = :id`)
                     stmtProdutos.all(id, (err, produtos) => {
                         if (err) {

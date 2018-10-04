@@ -3,7 +3,6 @@ const fs = require('fs');
 module.exports = (app, db) => {
 
     app.get('/reiniciar', (req, res) => {
-
         fs.copyFile('./database.sqlite.example', './database.sqlite', (err) => {
             if (err) {
                 console.log(err)
@@ -12,8 +11,11 @@ module.exports = (app, db) => {
                 res.send()
             }
         })
+    })
 
-
+    app.get('/download', (req, res) => {
+        var file = './database.sqlite.example';
+        res.download(file); 
     })
 
 }
